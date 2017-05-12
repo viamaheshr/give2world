@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CharityEditComponent } from './charities/charity-edit/charity-edit.component';
+import { CharityService } from './shared/charity.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { CharityEditComponent } from './charities/charity-edit/charity-edit.comp
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CharityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
