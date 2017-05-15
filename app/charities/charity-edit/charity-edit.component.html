@@ -3,7 +3,8 @@
     <div class="col-md-8">
       <div class="form-group">
         <label for="charityName">Charity Name *</label>
-        <input type="text" class="form-control" id="charityName" name="charityName" ngModel>
+        <input type="text" class="form-control" id="charityName" name="charityName" ngModel required #charityName="ngModel">
+        <span class="help-block" *ngIf="!charityName.valid && charityName.touched">Charity name is required</span>
       </div>
       <div class="form-group">
         <label for="missionStatement">Mission Statement</label>
@@ -11,7 +12,7 @@
       </div>
       <div class="form-group">
         <label for="charityType">Charity Type *</label>
-        <select class="form-control" id="charityType" name="charityType" ngModel>
+        <select class="form-control" id="charityType" name="charityType" ngModel required #charityType="ngModel">
           <option value="Animal Services">Animal Services</option>
           <option value="Children">Children</option>
           <option value="Civil and Human Rights">Civil and Human Rights</option>
@@ -20,10 +21,12 @@
           <option value="Human Services">Human Services</option>
           <option value="Other">Other</option>
         </select>
+        <span class="help-block" *ngIf="!charityType.valid && charityType.touched">Charity type is required</span>
       </div>
       <div class="form-group">
         <label for="address1">Address 1 *</label>
-        <input type="text" class="form-control" id="address1" name="address1" ngModel>
+        <input type="text" class="form-control" id="address1" name="address1" ngModel required #address1="ngModel">
+        <span class="help-block" *ngIf="!address1.valid && address1.touched">Address is required</span>
       </div>
       <div class="form-group">
         <label for="address2">Address 2</label>
@@ -31,15 +34,18 @@
       </div>
       <div class="form-group">
         <label for="city">City</label>
-        <input type="text" class="form-control" id="city" name="city" ngModel>
+        <input type="text" class="form-control" id="city" name="city" ngModel required #city="ngModel">
+        <span class="help-block" *ngIf="!city.valid && city.touched">City is required</span>
       </div>
       <div class="form-group">
         <label for="state">State</label>
-        <input type="text" class="form-control" id="state" name="state" ngModel>
+        <input type="text" class="form-control" id="state" name="state" ngModel required #state="ngModel">
+        <span class="help-block" *ngIf="!state.valid && state.touched">State is required</span>
       </div>
       <div class="form-group">
         <label for="zipCode">Zip Code *</label>
-        <input type="text" class="form-control" id="zipCode" name="zipCode" ngModel>
+        <input type="text" class="form-control" id="zipCode" name="zipCode" ngModel required #zipCode="ngModel">
+        <span class="help-block" *ngIf="!zipCode.valid && zipCode.touched">Zip code is required</span>
       </div>
       <div class="form-group">
         <label for="contactPerson">Contact Person *</label>
@@ -47,22 +53,25 @@
       </div>
       <div class="form-group">
         <label for="email">Email *</label>
-        <input type="text" class="form-control" id="email" name="email" ngModel>
+        <input type="email" class="form-control" id="email" name="email" email ngModel required #email="ngModel">
+        <span class="help-block" *ngIf="!email.valid && email.touched">Email is required</span>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="text" class="form-control" id="password" name="password" ngModel>
+        <input type="text" class="form-control" id="password" name="password" ngModel required #password="ngModel">
+        <span class="help-block" *ngIf="!password.valid && password.touched">Password is required</span>
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" name="phone" ngModel>
+        <input type="text" class="form-control" id="phone" name="phone" ngModel required #phone="ngModel">
+        <span class="help-block" *ngIf="!phone.valid && phone.touched">Phone is required</span>
       </div>
       <div class="form-group">
         <label for="website">Website</label>
         <input type="text" class="form-control" id="website" name="website" ngModel>
       </div>
       <div class="form-group">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
       </div>
     </div>
     <div class="col-md-4"></div>

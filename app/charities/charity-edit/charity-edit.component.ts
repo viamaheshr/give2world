@@ -31,11 +31,7 @@ export class CharityEditComponent implements OnInit {
         value.phone,
         value.website
     );
-    this.cService.addCharity(newCharity)
-      .subscribe(
-        (response) => console.log(response),
-        (error) => console.log(error)
-      );
+    this.cService.addCharity(newCharity);
     form.reset();
   }
 

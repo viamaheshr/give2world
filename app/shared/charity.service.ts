@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 
 import { Charity } from './charity.model';
-//import { Subject } from 'rxjs/Subject';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class CharityService {
+    charities: FirebaseListObservable<any[]>;
 
-    //charitiesAdded = new Subject<Charity[]>();
-
-    constructor(private http: Http) {}
-
-    addCharity (charity: Charity) {
-        //console.log(charity);
-       return this.http.post('https://give2world-e16c3.firebaseio.com/charity.json', charity);
+    constructor(private database: AngularFireDatabase) {
     }
 
-    getCharities () {
-        return this.http.get('https://give2world-e16c3.firebaseio.com/charity.json');
+    addCharity (charity: Charity) {
+       this.charities.push(charity);
+    }
+
+    // getCharities () {
+    //     return this.charities;
+    // }
+
+    isValidCharity (email: string, password: string) {
+        const queryObservable = this.database.list('/charities', { query: {orderByChild: 'email', equalTo: email}});
+        queryObservable.subscribe(results => {
+            console.log(results[0].password);
+        });
     }
 
 }

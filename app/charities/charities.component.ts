@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CharityService } from '../shared/charity.service';
+
 @Component({
   selector: 'app-charities',
   templateUrl: './charities.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cService: CharityService) { }
 
   ngOnInit() {
   }
